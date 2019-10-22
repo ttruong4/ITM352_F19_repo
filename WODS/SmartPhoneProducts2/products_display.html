@@ -11,7 +11,27 @@
 </head>
 
 <body>
+        // product data
+
+        $image1 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg";
+        $brand1 = "HTC Phones";
+        $price1 = 40; 
     
+        $image2 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/iphone-3gs.jpg";
+        $brand2 = "Apple Phones";
+        $price2 = 75; 
+    
+        $image3 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Nokia.jpg";
+        $brand3 = "Nokia Phones";
+        $price3 = 35; 
+    
+        $image4 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Samsung.jpg";
+        $brand4 = "Samsung Phones";
+        $price4 = 45; 
+    
+        $image5 = "http://dport96.github.io/ITM352/morea/080.flow-control-II/Blackberry.jpg";
+        $brand5 = "Blackberry Phones";
+        $price5 = 10; 
     <header>
         <h1>Port's Used Smart Phone Store</h1>
     </header>
@@ -24,37 +44,23 @@
         </aside>
 
         <main>
+            $num_prods = 5; 
+            for ($i =1; $i <= $numprods; $i++) {
+                $image_ident = 'image' . $i;
+                $image_ident = 'brand' . $i;
+                $image_ident = 'price' . $i;
+                printf('
+            
+
+
             <section class="item" id="HTC">
                 <h2>HTC</h2>
                 <p>$40.00</p>
                 <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/HTC.jpg" alt="HTC Phones">
+            
+            ',$$image_ident,$$brand_ident,$$price_ident);
+        }
             </section>
-
-            <section class="item">
-                <h2>Apple</h2>
-                <p>$75.00</p>
-                <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/iphone-3gs.jpg">
-            </section>
-
-            <section class="item">
-                <h2>Nokia</h2>
-                <p>$35.00</p>
-                <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/Nokia.jpg">
-            </section>
-
-            <section class="item">
-                <h2>Samsung</h2>
-                <p>$45.00</p>
-                <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/Samsung.jpg">
-            </section>
-
-            <section class="item">
-                <h2>Blackberry</td>
-                </h2>
-                <p>$10.00</p>
-                <img src="http://dport96.github.io/ITM352/morea/080.flow-control-II/Blackberry.jpg">
-            </section>
-
         </main>
     </div>
     <footer>
