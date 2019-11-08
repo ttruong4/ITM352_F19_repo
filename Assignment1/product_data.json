@@ -1,0 +1,8 @@
+// Making a JSON object for each product
+
+{  
+    model:"Apple iPhone XS",  
+    price: 990.00,  
+    image: 'AppleXS.jpg'
+  } 
+
