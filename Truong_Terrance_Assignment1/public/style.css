@@ -1,7 +1,7 @@
 html {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 30px; /* text font size (price and product)*/
-    background-position: center; /* Center the Image */
+    background-position: left; /* Center the Image */
   }
 
 /* Header footer design */
@@ -41,14 +41,15 @@ h2 {
     border-color:rgb(0, 0, 0);
 }
 
-main{  color: black;
+main{  color: blue;
+    font-size: 40px;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around
+    justify-content: space-evenly
 }
 /*styling product image*/
 img{ height:250; width:250px;}
-html{background-color: rgb(245, 245, 245);}
+html{background-color: white;}
 /* styling the invoice table */
 table {
     /* size and color of the invoice table*/
@@ -74,8 +75,9 @@ table {
 }
 /* purchase button */
 input[type=submit] {
-    width: 10em;  height: 3em;
-    font-size: 20px;
+    width: 10em;  
+    height: 3em;
+    font-size: 20px; 
     color: black;
     float: bottom;
   }
