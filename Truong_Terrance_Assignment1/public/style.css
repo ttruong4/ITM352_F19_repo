@@ -1,7 +1,7 @@
 html {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 30px; /* text font size (price and product)*/
-    background-position: left; /* Center the Image */
+    background-position: center; /* Center the Image */
   }
 
 /* Header footer design */
