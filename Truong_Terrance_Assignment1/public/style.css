@@ -1,13 +1,13 @@
 html {
     font-family: Monotype Corsiva;
     font-size: 30px; /* text font size (price and product)*/
-    background-position: left; /* Center the Image */
+    background-position: center; /* Center the Image */
   }
 
 /* Header footer design */
 header, footer {
     text-align: center;
-    font-size: 25px;
+    font-size: 15px;
     width: auto;
     background-color: yellow;
     border-top-style: outset;
@@ -24,10 +24,10 @@ header, footer {
 /* product name is header 2 */
 h2 {
     color:crimson;
-    font-size: 50px;
+    font-size: 20px;
     margin: 0;
-    padding: 2px;
-    padding-left: 14px;
+    padding: 10px;
+    padding-left: 250px;
 }
 
 /* size and color of home page*/

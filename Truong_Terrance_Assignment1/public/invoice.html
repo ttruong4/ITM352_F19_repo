@@ -1,9 +1,10 @@
 <script>/*Terrance Truong, 11/12/19, make an invoice page, I used invoice1_1 WOD as a reference*/</script>
 <script src="./product_data.js" type=""></script>
 <script>
+
   let params = (new URL(document.location)).searchParams;//Parses out the URL starting with the file name, quantity and purchase submit.
   //getting the quantity amount from product_data.js for data inputted
-  //checks if the quantity is added to the form, if ok proceeds to making invoice if not give a pop-up message "no form submitted"
+  //checks if the quantity is added to the form if it works, it'll make the invoice 
   var quantities = [];
   if (params.has('purchase_submit')) {
     for (i = 0; i < products.length; i++) {
@@ -13,9 +14,9 @@
       }
     }
   } else {
-    document.write('no form submitted');
+    document.write('no form submitted'); // if the quantity isn't added to the form, it writes "no form submitted" 
   }
-  console.log(quantities);//displays quantities
+  console.log(quantities);//shows the quantities
 </script>
 
 <head>
@@ -38,7 +39,7 @@
         <th style="text-align: center;" width="13%">Price</th>
         <th style="text-align: center;" width="54%">Extended Price</th>
       </tr>
-      <script>//above I labeled the table</script>
+      <script>//labeled the table</script>
       <script>
         //deriving subtotal, accounting for the different types of products purchased and the number of each product purchased
         subtotal = 0;
@@ -72,7 +73,7 @@
         }
         // Compute grand total 
         var grandtotal = subtotal + tax + shipping;
-      // Adapted from Invoice WOD, Assignment 1 example
+      // Adapted from Assignment 1 and the Invoice WODS 
       </script>
       <tr>
         <script>//calculating the Sub-total</script>

@@ -1,23 +1,25 @@
-<script>/*Terrance Truong, 11/12/19, creating a form to add quantities and validating if the right quantity is being added*/</script>
+<script>/*Terrance Truong, 11/12/19, creating a form */</script>
 <script src="product_data.js"></script>
 <script>
-    //adapted code from Assignment 1 example: used to check if the data entry is valid, must be a number and an integer 
-    function isNonNegInt(q, return_errors = false) {
-        errors = []; // assume no errors at first
-        if (q == '') q = 0; // handle blank inputs as if they are 0
-        if (Number(q) != q) errors.push('<font color="red">Not a number!</font>'); // Check if string is a number value
-        else if (q < 0) errors.push('<font color="red">Negative value!</font>'); // Check if it is non-negative
-        else if (parseInt(q) != q) errors.push('<font color="red">Not an integer!</font>'); // Check that it is an integer
-        return return_errors ? errors : (errors.length == 0);
-    }
-    //gives description of what you are putting in the textbox and gives message of whether or not the data is value, if not valid gives reason for not being valid
+
+    //Gives a message of whether or not the data is value, if not valid gives reason for not being valid
     function checkQuantityTextbox(theTextbox) {
         errs = isNonNegInt(theTextbox.value, true);
         if (errs.length == 0) errs = ['You want:'];//telling the value entry is set
         if (theTextbox.value.trim() == '') errs = ['Quantity'];
         document.getElementById(theTextbox.name + '_label').innerHTML = errs.join(", ");
     }
-    //Loads to invoice page when form is correctly submitted and ensures that the user inputs a number in at least one quantity 
+
+    //configured the code from Assignment 1  
+    function isNonNegInt(q, return_errors = false) {
+        errors = []; // make an errors array 
+        if (q == '') q = 0; // take inputs as if they are 0
+        if (Number(q) != q) errors.push('<font color="red">Not a number!</font>'); // Checks if the user entered a number value
+        else if (q < 0) errors.push('<font color="red">Negative value!</font>'); // Checks if it is non-negative number 
+        else if (parseInt(q) != q) errors.push('<font color="red">Not an integer!</font>'); // Checks that it's an integer
+        return return_errors ? errors : (errors.length == 0); //returns 0 if no amount was entered
+    }
+    // Makes sure the user inputs a number and then goes to the invoice page when form is submitted
     window.onload = function () {
         let params = (new URL(document.location)).searchParams; // get the query string which has the form data
         // form was submitted so check that quantities are valid then redirect to invoice if ok.
@@ -31,20 +33,17 @@
                     product_selection_form[`quantity${i}`].value = a_qty;
                     total_qty += a_qty;
                     if (!isNonNegInt(a_qty)) {
-                        has_errors = true; // oops, invalid quantity
-                        checkQuantityTextbox(product_selection_form[`quantity${i}`]); // show where the error is
+                        has_errors = true; 
+                        checkQuantityTextbox(product_selection_form[`quantity${i}`]); // shows where the error is
                     }
                 }
             }
-            // Now respond to errors or redirect to invoice if all is ok
-            if (has_errors) {
-                alert("Please enter only valid quantities!");
+             // Now respond to errors or redirect to invoice if all is ok
+             if (has_errors) {
+                alert("Please enter only valid quantities!");//pop-up when non integers and letters are entered
             } else if (total_qty == 0) { // no quantity selections, just give a general alert
-                alert("Please select some quantities!");
-            } else { // all good to go!
-                window.location = `./invoice.html${document.location.search}`;
-                window.stop;
-            }
+                alert("Please select some quantities!");//pop-up when no value is added
+            } 
         }
     }
 </script>
