@@ -32,7 +32,7 @@ app.get("/process_form", function (request, response) {
                 }
             }
         }
-        console.log(has_errors,total_qty);
+        console.log(has_errors, total_qty);
         //request view query string
         qstr = querystring.stringify(request.query);//turn object to query string
         // Now respond to errors or redirect to invoice if all is ok
@@ -51,7 +51,7 @@ app.listen(8080, () => console.log(`listening on port 8080`));
 //Adapted from Lab 13
 function isNonNegInt(q, returnErrors = false) {
     errors = []; // assume no errors at first
-    if(q==""){q=0;}
+    if (q == "") { q = 0; }
     if (Number(q) != q) errors.push('Not a number!'); // Checks if the user entered a number value
     if (q < 0) errors.push('Negative value!'); // Checks if it is non-negative number 
     if (parseInt(q) != q) errors.push(' Not an integer!'); // Check that it's an integer
