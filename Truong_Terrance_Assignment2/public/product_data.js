@@ -29,5 +29,5 @@ products = [
 ];
 
 if (typeof module != 'undefined') {
-    module.exports.products = products;
+    module.exports = products;
 }

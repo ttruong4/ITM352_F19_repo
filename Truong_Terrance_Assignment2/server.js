@@ -14,6 +14,9 @@ app.all('*', function (request, response, next) {
 });
 
 app.use(myParser.urlencoded({ extended: true }));
+app.post("/login.html", function (request, response) {
+    console.log(request.body);
+});
 //checks purchase submission, if good gives invoice or else referes back to order page
 app.get("/process_form", function (request, response) {
     //checks if data is valid
@@ -40,7 +43,7 @@ app.get("/process_form", function (request, response) {
             //if quantity data is not valid, send them back to product display
             response.redirect("products_page.html?" + qstr);
         } else { // all good to go!
-            response.redirect("invoice.html?" + qstr);
+            response.redirect("login.html?" + qstr);
         }
     }
 });

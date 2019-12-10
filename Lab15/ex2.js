@@ -92,7 +92,15 @@ app.post("/login", function (request, response) {
         if (users_reg_data[the_username].password == request.body.password) {
             // make the query string of prod quant needed for invoice
             theQuantQuerystring = qs.stringify(user_product_quantities);
-            response.redirect('/invoice.html?' + theQuantQuerystring);
+          // response.redirect('/invoice.html?' + theQuantQuerystring);
+            if(typoeof request.session.last_login != 'undefined') {
+            var msg = `You last logged in on ${request.session.last_login}`;    
+            var now = new Date();
+            } else {
+                now = 'first login!';
+            }
+            request.session.last_login = now; 
+            response.send(`${the_username} is logged in at ${now}`);
         } else {
             response.redirect('/login');
         }

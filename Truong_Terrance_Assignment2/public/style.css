@@ -27,7 +27,7 @@ h2 {
     font-size: 50px;
     margin: 0;
     padding: 10px;
-    padding-left: 250px;
+    padding-left: 100px;
 }
 
 /* size and color of home page*/
@@ -42,7 +42,8 @@ h2 {
 }
 
 main{  color: blue;
-    font-size: 40px;
+    padding-right: 100px;
+    font-size: 30px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly

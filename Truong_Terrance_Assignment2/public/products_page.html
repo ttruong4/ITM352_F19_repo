@@ -43,10 +43,7 @@
                 alert("Please enter only valid quantities!");//pop-up when non integers and letters are entered
             } else if (total_qty == 0) { // no quantity selections, just give a general alert
                 alert("Please select some quantities!");//pop-up when no value is added
-            } else { // all good to go!
-                window.location = `./invoice.html${document.location.search}`;
-                window.stop;
-            }
+            } 
         }
     }
 </script>
@@ -72,7 +69,7 @@
         <script>//code adapted from Example from Assignment : used form to insert textboox that includes quantity</script>
 
         <body>
-            <form name="product_selection_form" action="" method="GET">
+            <form name="product_selection_form" action="process_form" method="GET">
                 <div>
                     <main>
                         <script>
