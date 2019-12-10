@@ -6,7 +6,7 @@ var qs = require('querystring');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
-app.use(session({secret: "ITM352 rocks!"}));
+app.use(session({ secret: "ITM352 rocks!" }));
 app.use(myParser.urlencoded({ extended: true }));
 var filename = 'user_data.json';
 
@@ -45,12 +45,12 @@ app.get('/use_session', function (request, response) {
 
 
 app.get('/set_cookie', function (request, response) {
-    response.cookie('myname', 'Dan Port', {maxAge: 5*1000}).send('cookie set'); 
+    response.cookie('myname', 'Dan Port', { maxAge: 5 * 1000 }).send('cookie set');
 });
 
 app.get('/use_cookie', function (request, response) {
     output = "No cookie with myname";
-    if(typeof request.cookies.myname != 'undefined') { 
+    if (typeof request.cookies.myname != 'undefined') {
         output = `Welcome to the Use Cookie page ${request.cookies.myname}`;
     }
     response.send(output);
@@ -92,15 +92,7 @@ app.post("/login", function (request, response) {
         if (users_reg_data[the_username].password == request.body.password) {
             // make the query string of prod quant needed for invoice
             theQuantQuerystring = qs.stringify(user_product_quantities);
-          // response.redirect('/invoice.html?' + theQuantQuerystring);
-            if(typoeof request.session.last_login != 'undefined') {
-            var msg = `You last logged in on ${request.session.last_login}`;    
-            var now = new Date();
-            } else {
-                now = 'first login!';
-            }
-            request.session.last_login = now; 
-            response.send(`${the_username} is logged in at ${now}`);
+            response.redirect('/invoice.html?' + theQuantQuerystring);
         } else {
             response.redirect('/login');
         }
