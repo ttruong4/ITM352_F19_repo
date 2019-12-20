@@ -6,13 +6,20 @@
   <script>
 //
 
-    <!--
-    if (params.has(`purchase_submit`))
-    {}
+  
+    if (params.has(`purchase_submit`)){
+      for (i=0; i<products.length;i++) {
+        if (params.has(`quantity${i}`)){
+          a_qty = params.get(`quantity${i}`);//Gets the quantity of products selected
+          quantities[i] = a_qty;
+        }
+      }
+    }
+    
     else{
       alert('You must enter the amount of photos you want to purchase');
       window.location = 'menu.html';
-      window.stop();}     !-->
+      window.stop();}    
    
     console.log(quantities);
   /*table to create the invoice
