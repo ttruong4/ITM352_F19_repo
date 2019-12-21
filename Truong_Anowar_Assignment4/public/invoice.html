@@ -1,0 +1,119 @@
+<script>
+  //Description: This file is the invoice that contains the information from menu page
+  //12/20/19-Code is adapted from Invoice 2 WOD Exercise and Assignment 2
+  </script>
+  <script src="products.js" type=""></script>
+  <script>
+//
+
+    <!--
+    if (params.has(`purchase_submit`))
+    {}
+    else{
+      alert('You must enter the amount of photos you want to purchase');
+      window.location = 'menu.html';
+      window.stop();}     !-->
+   
+    console.log(quantities);
+  /*table to create the invoice
+  Linked is what is in the table to the product_data.js where all the prices items and pictures are
+  */
+  </script>
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Receipt</title>
+    <link href="css/invoice.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <h1>Coffee Shop Invoice</h1>
+      <h1> <script>document.write(`Thank you for your purchase ${params.get('username')}!!!`);</script> </h1>
+    </header>
+    
+    <table border="2">
+      <body>
+        <tr id="invoice">
+          <th width="43%">Item</th>
+          <th width="11%">Quantity</th>
+          <th width="13%">Price</th>
+          <th width="54%">Extended Price</th>
+        </tr>
+        <script>
+          //Form was submitted so initiate the invoice by taking the quantities that were submitted for each product
+          //If you went to invoice.html directly without submitting any quanitites, you will get a no form submitted
+          //invoice loads after functions in products_store are checked
+          let params = (new URL(document.location)).searchParams;
+          let quantities = [];
+          if (params.has('purchase_submit')) {
+            for (i = 0; i < products.length; i++) {
+              if (params.has(`quantity`)) {
+                a_qty = params.get(`quantity`);
+                quantities[i] = a_qty;
+              }
+            }
+          } else {
+            document.write('no form submitted');
+          }
+          subtotal = 0; //starting amount till prices are calculated and added up
+          //If the quantity's of the products are greater than 0, calculate extended price, subtotal and document write the products purchased, quanitites of each, price and extended price.
+          for (i = 0; i < products.length; i++) {
+            if (quantities[i] > 0 && params.get(`type`) == products[i].type) { //product row
+              // product row
+              console.log(subtotal);
+              extended_price = quantities[i] * products[i].price;
+              subtotal += extended_price;
+              document.write(`
+          <tr>
+            <td width="43%">${products[i].type}</td>
+            <td align="center" width="11%">${quantities[i]}</td>
+            <td width="13%">\$${products[i].price}</td>
+            <td width="54%">\$${extended_price}</td>
+          </tr>
+          `);
+            }
+          }
+          // Compute tax 
+          var tax_rate = 0.04712;
+          var tax = subtotal * tax_rate;
+          // Compute grand total 
+          var grandtotal = subtotal + tax;
+        // Sources: Invoice WOD
+        </script>
+        <div class="invoice-text">
+        <tr>
+          <td colspan="4" width="100%">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="3" width="67%">Sub-Total</td>
+          <td width="54%">$
+            <script>document.write(subtotal);</script>
+          </td>
+        </tr>
+        <tr>
+          <td  colspan="3" width="67%">Tax @
+            <script>document.write( tax_rate);</script>%</span></td>
+          <td width="54%">$
+            <script>document.write(tax.toFixed(2));</script>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" width="67%"><strong>Total</strong></td>
+          <td width="54%"><strong>$
+              <script>document.write(grandtotal.toFixed(2));</script></strong></td>
+        </tr>
+        </div>
+      </body>
+    </table>
+    <footer>
+      <h1>
+        We Hope to See You Again!
+      </h1>
+    </footer>
+  </body>
+  
+  </html>
+
