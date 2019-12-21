@@ -42,10 +42,16 @@ h2 {
 }
 
 main{  color: blue;
+<<<<<<< HEAD
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: baseline
+=======
     font-size: 40px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly
+>>>>>>> 3eddecf212cd89482178593f4278bafff1d65745
 }
 /*styling product image*/
 img{ height:250; width:250px;}
